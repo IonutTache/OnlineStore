@@ -28,4 +28,9 @@ public class ItemController {
     public ItemResponse save (@RequestBody @Valid ItemRequest itemRequest){
         return itemService.save(itemRequest);
     }
+
+    @DeleteMapping(value = "{nume}")
+    public void delete(@PathVariable(value = "nume") Integer id){
+        itemService.delete(id);
+    }
 }

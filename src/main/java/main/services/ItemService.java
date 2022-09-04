@@ -31,4 +31,8 @@ public class ItemService {
         itemRepository.save(item);
         return mapper.map(item);
     }
+
+    public void delete(Integer id) {
+        itemRepository.deleteById(id);
+    }
 }
