@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Data
 @Builder
@@ -12,6 +16,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ItemRequest {
 
+    @NotBlank
     private String name;
+
+    @NotNull
+    @Min(10)
     private Integer age;
 }
