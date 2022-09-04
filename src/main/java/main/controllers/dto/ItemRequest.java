@@ -1,5 +1,6 @@
 package main.controllers.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,5 +22,6 @@ public class ItemRequest {
 
     @NotNull
     @Min(10)
+    @Schema(description = "Name of the input Model", example = "abc", required = true)
     private Integer age;
 }

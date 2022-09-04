@@ -1,5 +1,9 @@
 package main.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import main.controllers.dto.ItemRequest;
 import main.controllers.dto.ItemResponse;
@@ -19,14 +23,22 @@ public class ItemController {
 
     private final ItemService itemService;
 
+    // asa creeaza documentatie pentru client;in cazul de fata doar documentatie pentru GET
+    @Operation(summary = "GET request documentation", description = "full documentation of this GET request")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "all good on POST"),
+            @ApiResponse(responseCode = "400", description = "Bad boy GET request")
+    }
+    )
     @GetMapping(value = "all")
     public List<ItemResponse> findAll(){
         return itemService.findAll();
     }
 
     @PostMapping
+
   //  @PatchMapping //clientul este responsabil sa trimita un json(payload) la server.tre' sa specifice id-ul,noul continut care rescrie pe cel precedent; folosit exclusiv ptr UPDATE
-    public ItemResponse save (@RequestBody @Valid ItemRequest itemRequest){
+    public ItemResponse save (@RequestBody @Valid @Parameter(description = "Documented Model used as input for GET") ItemRequest itemRequest){
         return itemService.save(itemRequest);
     }
 
