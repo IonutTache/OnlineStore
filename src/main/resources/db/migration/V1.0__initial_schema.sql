@@ -1,1 +1,1 @@
-create table item(id int primary key, name varchar(50));
+create table item(id int primary key auto_increment, name varchar(50));
