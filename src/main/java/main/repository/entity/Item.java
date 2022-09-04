@@ -3,6 +3,9 @@ package main.repository.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "item")
@@ -18,9 +21,11 @@ public class Item {
     @Column(name = "id")
     private Integer id;
 
+    @NotBlank
     @Column(name = "name")
     private String name;
 
+    @Min(10) //hiberante vliddeaza aceasta valoare inaite de a face queriul in baza de date
     @Column(name = "age")
     private Integer age;
 }

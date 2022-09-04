@@ -31,10 +31,11 @@ public class ValidationExceptionHandler extends ResponseEntityExceptionHandler {
 
 
 
-    //meacanismul default ala springului de a da detalii la erori catre clienti
+    //meacanismul default ala springului de a da detalii la erori catre clienti(la intrarea datelor)
 @Override
 protected ResponseEntity<Object> handleMethodArgumentNotValid  (
         MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    log.error("eroare de validare",ex);
     List<String> details = new ArrayList<>();
     for(ObjectError error : ex.getBindingResult().getAllErrors()) {
         details.add(error.toString());
