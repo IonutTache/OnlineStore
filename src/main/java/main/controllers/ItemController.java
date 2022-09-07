@@ -5,9 +5,8 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import main.controllers.dto.ItemRequest;
-import main.controllers.dto.ItemResponse;
-import main.repository.entity.Item;
+import main.controllers.dto.ItemRequestDto;
+import main.controllers.dto.ItemResponseDto;
 import main.services.ItemService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -31,15 +30,15 @@ public class ItemController {
     }
     )
     @GetMapping(value = "all")
-    public List<ItemResponse> findAll(){
+    public List<ItemResponseDto> findAll(){
         return itemService.findAll();
     }
 
     @PostMapping
-
   //  @PatchMapping //clientul este responsabil sa trimita un json(payload) la server.tre' sa specifice id-ul,noul continut care rescrie pe cel precedent; folosit exclusiv ptr UPDATE
-    public ItemResponse save (@RequestBody @Valid @Parameter(description = "Documented Model used as input for GET") ItemRequest itemRequest){
-        return itemService.save(itemRequest);
+    public ItemResponseDto save (@RequestBody @Valid @Parameter(description =
+            "Documented Model used as input for GET") ItemRequestDto itemRequestDto){
+        return itemService.save(itemRequestDto);
     }
 
     @DeleteMapping(value = "{nume}")
