@@ -3,7 +3,7 @@ package main.services;
 import lombok.RequiredArgsConstructor;
 import main.controllers.dto.VanzatorRequestDto;
 import main.controllers.dto.VanzatorResponseDto;
-import main.mappers.VanzatorRequestVanzatorMapper;
+import main.mappers.VanzatorRequestMapper;
 import main.mappers.VanzatorResponseMapper;
 import main.repository.entity.Vanzator;
 import main.repository.VanzatorRepository;
@@ -20,7 +20,7 @@ public class VanzatorService {
 
     private final VanzatorResponseMapper mapper;
 
-    private final VanzatorRequestVanzatorMapper vanzatorRequestVanzatorMapper;
+    private final VanzatorRequestMapper vanzatorRequestMapper;
 
 
     public List<VanzatorResponseDto> findAll(){
@@ -30,7 +30,7 @@ public class VanzatorService {
     }
 
     public VanzatorResponseDto save(VanzatorRequestDto vanzatorRequestDto){
-        Vanzator vanzator = vanzatorRequestVanzatorMapper.map(vanzatorRequestDto);
+        Vanzator vanzator = vanzatorRequestMapper.map(vanzatorRequestDto);
         vanzatorRepository.save(vanzator);
         return mapper.map(vanzator);
     }

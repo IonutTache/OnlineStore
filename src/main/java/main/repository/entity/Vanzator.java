@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,7 +33,7 @@ public class Vanzator {
     @NotBlank
     @Column(name = "produs")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "vanzator")
-    private List<Produs> produs;
+    private final List<Produs> produs = new ArrayList<>();
 
     @NotBlank
     @Column(name = "email")

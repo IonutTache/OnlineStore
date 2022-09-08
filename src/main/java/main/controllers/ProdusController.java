@@ -1,9 +1,9 @@
 package main.controllers;
 
 import lombok.RequiredArgsConstructor;
+import main.controllers.dto.ProdusRequestDto;
 import main.controllers.dto.ProdusResponseDto;
 import main.services.ProdusService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProdusController {
 
-    ProdusService produsService;
+    private  final ProdusService produsService;
 
     @GetMapping("all")
     public List<ProdusResponseDto> findAll(){
@@ -23,6 +23,9 @@ public class ProdusController {
     @DeleteMapping(value = "nume")
     public void delete(@PathVariable(value = "nume") Integer id){
         produsService.delete(id);
-
+    }
+    @PostMapping
+    public ProdusResponseDto save(@RequestParam ProdusRequestDto produsRequestDto){
+       return produsService.save(produsRequestDto);
     }
 }

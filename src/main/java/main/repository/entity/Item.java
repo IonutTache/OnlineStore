@@ -28,3 +28,5 @@ public class Item {
     @Column(name = "age")
     private Integer age;
 }
+
+//tabel - vanzare- foreigh catre vanzator , produs, cumparator. informatie a//foreign key in produs catrte vanzator
