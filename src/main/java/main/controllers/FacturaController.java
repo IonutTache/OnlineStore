@@ -23,8 +23,6 @@ public class FacturaController {
         return facturaService.findAll();
     }
 
-
-    //Te rog sa-mi spui daca controllerul asta este ok
     @PostMapping
     public FacturaResponseDto save(@RequestBody FacturaRequestDto facturaRequestDto){
         return facturaService.save(facturaRequestDto);

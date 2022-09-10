@@ -25,7 +25,8 @@ public class CumparatorController {
     }
 
     @PostMapping
-    public CumparatorResponseDto save(@RequestParam CumparatorRequestDto cumparatorRequestDto){
+    public CumparatorResponseDto save(@RequestBody CumparatorRequestDto cumparatorRequestDto){
         return cumparatorService.save(cumparatorRequestDto);
     }
+
 }

@@ -18,7 +18,7 @@ public class VanzatorRequestDto {
 
     private String lastName;
 
-    private List<Produs> produs;
+    //private List<Produs> produs;
 
 
 

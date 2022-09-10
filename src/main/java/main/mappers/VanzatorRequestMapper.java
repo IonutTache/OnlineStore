@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class VanzatorRequestMapper {
+    //creeaza vanzator
 
     public Vanzator map(VanzatorRequestDto vanzator){
 
