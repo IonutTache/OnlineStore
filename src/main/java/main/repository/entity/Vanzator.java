@@ -31,8 +31,8 @@ public class Vanzator {
     private String lastName;
 
     @NotBlank
-    @Column(name = "produs")
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "vanzator")
+    @OneToMany(mappedBy = "vanzator")
+    @Builder.Default
     private final List<Produs> produs = new ArrayList<>();
 
     @NotBlank

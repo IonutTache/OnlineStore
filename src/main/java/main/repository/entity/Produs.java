@@ -3,6 +3,7 @@ package main.repository.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "produs")
@@ -26,7 +27,8 @@ public class Produs {
     private Double pretProdus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vanzator_id")
+    @JoinColumn(name = "vanzator_id",nullable = false)
+    @NotNull
     private Vanzator vanzator;
 
 

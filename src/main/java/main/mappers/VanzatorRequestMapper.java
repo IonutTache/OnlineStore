@@ -16,7 +16,6 @@ public class VanzatorRequestMapper {
                 //.produs(vanzator.getProdus())
                 .build();
 
-// Daca nu comnetez linia 15 imi da eroare dar nu stiu de ce
 
 
     }

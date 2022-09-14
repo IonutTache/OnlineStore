@@ -4,6 +4,7 @@ package main.repository.entity;
 import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,7 +34,8 @@ public class Factura {
     private Vanzator vanzator;
 
     @OneToMany
-    private List<Produs> produs;
+    @Builder.Default
+    private  final List<Produs> produs = new ArrayList<>();
 
 
 
