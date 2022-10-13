@@ -35,7 +35,7 @@ public class ItemController {
     }
 
     @PostMapping
-  //  @PatchMapping //clientul este responsabil sa trimita un json(payload) la server.tre' sa specifice id-ul,noul continut care rescrie pe cel precedent; folosit exclusiv ptr UPDATE
+  //  @PatchMapping //clientul este responsabil sa trimita un json(payload) la server.trebuie sa specifice id-ul,noul continut care rescrie pe cel precedent; folosit exclusiv ptr UPDATE
     public ItemResponseDto save (@RequestBody @Valid @Parameter(description =
             "Documented Model used as input for GET") ItemRequestDto itemRequestDto){
         return itemService.save(itemRequestDto);

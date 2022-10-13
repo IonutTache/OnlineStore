@@ -1,21 +1,21 @@
-create table vanzator(id int primary key auto_increment, first_name varchar(50)
+create table seller(id int primary key auto_increment, first_name varchar(50)
                      ,last_name varchar(50),email varchar(50),password varchar(50));
 
-create table cumparator(id int primary key auto_increment, first_name varchar(50)
-    ,second_name varchar(50),email varchar(50),password varchar(50));
+create table buyer(id int primary key auto_increment, first_name varchar(50)
+    ,last_name varchar(50),email varchar(50),password varchar(50));
 
-create table produs(id int primary key auto_increment,nume_produs varchar(50)
-                   ,pret_produs varchar(50)
-                   ,vanzator_id int
-                    ,FOREIGN KEY (vanzator_id) REFERENCES vanzator(id));
+create table product(id int primary key auto_increment,product_name varchar(50)
+                   ,product_price varchar(50)
+                   ,seller_id int
+                    ,FOREIGN KEY (seller_id) REFERENCES buyer(id));
 
-create table factura(id int primary key auto_increment
+create table invoice(id int primary key auto_increment
                     , local_date_time date
-                    ,pret_factura double precision
-                    ,cumparator_id int
-                    ,vanzator_id int
-                    ,produs_id int
-                    ,FOREIGN KEY (cumparator_id) REFERENCES cumparator(id)
-                    ,FOREIGN KEY (vanzator_id) REFERENCES vanzator(id)
-                    ,FOREIGN KEY (produs_id) REFERENCES produs(id));
+                    ,invoice_amount double precision
+                    ,buyer_id int
+                    ,seller_id int
+                    ,product_id int
+                    ,FOREIGN KEY (buyer_id) REFERENCES buyer(id)
+                    ,FOREIGN KEY (seller_id) REFERENCES seller(id)
+                    ,FOREIGN KEY (product_id) REFERENCES product(id));
 
